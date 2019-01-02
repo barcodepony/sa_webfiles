@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="src_js/pouplate_shops.js"></script>
+    <script src="src_js/populate_favourites.js"></script>
+    <script src="src_js/populate_category.js"></script>
+    <script src="src_js/populate_poi.js"></script>
+    <script src="src_js/delete_shops.js"></script>
+    <script src="src_js/delete_favs.js"></script>
+    <script src="src_js/tabledit.js"></script>
+    <script src="src_js/search.js"></script>
+    <script src="src_js/populate_shops_function.js"></script>
+    <script src="src_js/add_fav.js"></script>
+
+
+
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="src_js/table-edits.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+
+
+    <link href="main.css", rel="stylesheet", type="text/css">
+</head>
+<body>
+<h3>Software Architektur 2K18/19:</h3>
+<h3>Filter:</h3>
+<!-- Filter Table -->
+
+<table>
+    <tr>
+        <td>Name: </td>
+        <td> <input type="text" id="name" name="name"> </td>
+        <td style="width: 20px"> <input type="checkbox" id="name_checkbox"></td>
+    </tr>
+    <tr>
+        <td>Category: </td>
+        <td> <select id="category"></select> </td>
+        <td> <input type="checkbox" id="category_checkbox"></td>
+        <td><input type="button" id="search_button" value="Search"></td>
+    </tr>
+    <tr>
+        <td>Point of Interest: </td>
+        <td>
+            <select id="poi"></select>
+            <input type="number" id="poi_range">
+        </td>
+        <td> <input type="checkbox" id="poi_checkbox"></td>
+    </tr>
+</table>
+<br>
+<form>
+    <h4>Safe to favourites: </h4>
+    Title: <input type="text" id="fav_title">
+    <input type="button" id="safe_btn" value="Safe">
+</form>
+
+<br>
+<br>
+<h3>Filtered shops:</h3>
+<br>
+<!-- Fill table with data at the beginning -->
+
+<div id="main_table"> </div>
+
+<input type="button" id="inline_editing" value="drück mich">
+
+
+<br>
+<br>
+<br>
+
+<h3>Favourites:</h3>
+<!-- show History -->
+<div id="history"> </div>
+
+<br>
+<h3>Add a shop:</h3>
+<a href="addShop.html">
+    <input type="button" id="addShop" value="Add Shop">
+</a>
+
+
+
+</body>
+</html>
