@@ -27,18 +27,19 @@ function populate_shops_filtered(link, enable_map, poi_id=false, poi_range=250) 
         var container = L.DomUtil.get('mapid'); if(container != null){ container._leaflet_id = null; }
         var mymap = L.map('mapid').setView([47.076668, 15.421371], 13);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYmFyY29kZXBvbnkiLCJhIjoiY2pxZmVxc2hiNTN0MjQzdWwzZmh1bTRtNSJ9.eiW6Ij0rCVaINI4Iu7UIqg', {
-           attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-           maxZoom: 18,
-           id: 'mapbox.streets',
-           accessToken: 'your.mapbox.access.token'
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 16,
+            minZoom: 12,
+            id: 'mapbox.streets',
+            accessToken: 'your.mapbox.access.token'
         }).addTo(mymap);
-
+        //var circle;
         //if(typeof poi_id == "number"){
         //    $.getJSON("http://0.0.0.0:5000/api/pois/"+poi_id, function (data) {
-        //        var circle = L.circle([data["p_lat"], data["p_lon"]], {
-        //            color: 'green',
-        //            fillColor: '#A9F5A9',
-        //            fillOpacity: 0.2,
+        //        circle = L.circle([data["p_lat"], data["p_lon"]], {
+        //            color: 'red',
+        //            fillColor: '#ffd05d',
+        //            fillOpacity: 0.1,
         //            radius: poi_range
         //        }).addTo(mymap);
         //    });
