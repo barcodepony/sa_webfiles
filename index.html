@@ -3,7 +3,11 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <!<link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -20,80 +24,100 @@
     <script src="src_js/search.js"></script>
     <script src="src_js/populate_shops_function.js"></script>
     <script src="src_js/add_fav.js"></script>
-
-
-
-
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="src_js/load_map.js"></script>
     <script src="src_js/table-edits.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-
-
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
-
-
-
     <link href="main.css", rel="stylesheet", type="text/css">
 </head>
 <body>
-<h3>Software Architektur 2K18/19:</h3>
-<h3>Filter:</h3>
-<!-- Filter Table -->
+<p></p>
+<center><h1>Software Architektur 2K18/19:</h1></center>
+<section>
+    <div class ="inner">
+        <h2>Filter:</h2>
+        <!-- Filter Table -->
+        <table>
+            <tr>
+                <td>Name: </td>
+                <td><input type="text" id="name" name="name"> </td>
+                <td></td>
+                <td><input type="checkbox" id="name_checkbox"></td>
+            </tr>
+            <tr>
+                <td>Category: </td>
+                <td> <select id="category"></select> </td>
+                <td> </td>
+                <td> <input type="checkbox" id="category_checkbox" name="check"></td>
 
-<table>
-    <tr>
-        <td>Name: </td>
-        <td> <input type="text" id="name" name="name"> </td>
-        <td style="width: 20px"> <input type="checkbox" id="name_checkbox"></td>
-    </tr>
-    <tr>
-        <td>Category: </td>
-        <td> <select id="category"></select> </td>
-        <td> <input type="checkbox" id="category_checkbox"></td>
-        <td><input type="button" id="search_button" value="Search"></td>
-    </tr>
-    <tr>
-        <td>Point of Interest: </td>
-        <td>
-            <select id="poi"></select>
-            <input type="number" id="poi_range">
-        </td>
-        <td> <input type="checkbox" id="poi_checkbox"></td>
-    </tr>
-</table>
+            </tr>
+            <tr>
+                <td>Point of Interest: </td>
+                <td><select id="poi"></select></td>
+                <td><input type="number" id="poi_range"></td>
+                <td><input type="checkbox" id="poi_checkbox" value="check"></td>
+            </tr>
+        </table>
+        <br>
+        <td><center><input type="button" id="search_button" value="Search"></center></td>
+        <br>
+    </div>
+</section>
+<hr>
+
+<section>
+    <div class ="inner">
+        <form>
+            <h2>Save to favourites: </h4>
+                Title: <input type="text" id="fav_title">
+                <input type="button" id="safe_btn" value="Save">
+        </form>
+        <br>
+    </div>
+</section>
+<hr>
+
+<section>
+    <div class ="inner">
+        <h2>Filtered shops:</h2>
+        <br>
+        <!-- Fill table with data at the beginning -->
+
+        <div id="main_table"> </div>
+        <br>
+        <center><input type="button" id="inline_editing" value="Save"></center>
+        <br>
+    </div>
+</section>
+<hr>
+
+<section>
+    <div class ="inner">
+
+        <h2>Favourites:</h2>
+        <!-- show History -->
+        <div id="history"> </div>
+        <br>
+    </div>
+</section>
+<hr>
+
+<section>
+    <div class ="inner">
+        <h2>Add a shop:</h2>
+        <a href="addShop.html">
+            <center><input type="button" id="addShop" value="Add Shop"></center>
+        </a>
+    </div>
+</section>
 <br>
-<form>
-    <h4>Safe to favourites: </h4>
-    Title: <input type="text" id="fav_title">
-    <input type="button" id="safe_btn" value="Safe">
-</form>
+<hr>
 
-<br>
-<br>
-<h3>Filtered shops:</h3>
-<br>
-<!-- Fill table with data at the beginning -->
-
-<div id="main_table"> </div>
-
-<input type="button" id="inline_editing" value="drück mich">
-
-
-<br>
-<br>
-<br>
-
-<h3>Favourites:</h3>
-<!-- show History -->
-<div id="history"> </div>
-
-<br>
-<h3>Add a shop:</h3>
-<a href="addShop.html">
-    <input type="button" id="addShop" value="Add Shop">
-</a>
-<div id="mapid"></div>
-
+<section>
+    <div class ="inner">
+        <h2>Map:</h2>
+        <div id="mapid"></div>
+    </div>
+</section>
+<p></p>
 
 
 </body>
