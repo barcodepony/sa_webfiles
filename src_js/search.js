@@ -30,10 +30,9 @@ function shop_filtering(){
     var filter_category = $("#category_checkbox:checked").val()?true:false;
     var filter_poi = $("#poi_checkbox:checked").val()?true:false;
 
-    var api_query = "http://192.168.0.157:5000/api/shops";
+    var api_query = "http://0.0.0.0:5000/api/shops";
     if (!filter_name && !filter_category && !filter_poi)
     {
-        alert("Default (nothing to filter)");
         populate_shops_filtered(api_query);
     }
     else

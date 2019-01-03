@@ -15,7 +15,6 @@ function populate_shops_filtered(link) {
                 }
             }
         }
-
         // CREATE DYNAMIC TABLE.
         var table = document.createElement("table");
         table.id = "shops_table";
@@ -56,6 +55,7 @@ function populate_shops_filtered(link) {
                         break;
                     case 4:
                         tabCell.setAttribute("data-field", "s_lat");
+                        //var marker =
                         break;
                     case 5:
                         tabCell.setAttribute("data-field", "s_lon");
@@ -64,6 +64,7 @@ function populate_shops_filtered(link) {
                         tabCell.setAttribute("data-field", "s_name");
                         var cell = tr.insertCell(-1);
                         cell.innerHTML = "<input type='button' onclick='delete_shop(this)' id='delete_shop_btn' value='Delete'>";
+
                         break;
 
                 }

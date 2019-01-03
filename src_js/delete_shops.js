@@ -7,7 +7,7 @@ function delete_shop(element){
 
     $.ajax({
         type: "DELETE",
-        url: "http://192.168.0.157:5000/api/shops/" + id,
+        url: "http://0.0.0.0:5000/api/shops/" + id,
         // The key needs to match your method's input parameter (case-sensitive).
         //data: JSON.stringify(shop),
         //contentType: "application/json; charset=utf-8",

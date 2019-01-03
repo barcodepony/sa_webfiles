@@ -7,7 +7,7 @@ function delete_fav(element){
 
     $.ajax({
         type: "DELETE",
-        url: "http://192.168.0.157:5000/api/favs/" + id,
+        url: "http://0.0.0.0:5000/api/favs/" + id,
         // The key needs to match your method's input parameter (case-sensitive).
         //data: JSON.stringify(shop),
         //contentType: "application/json; charset=utf-8",

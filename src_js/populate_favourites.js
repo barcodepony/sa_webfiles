@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.getJSON("http://192.168.0.157:5000/api/favs", function (data) {
+    $.getJSON("http://0.0.0.0:5000/api/favs", function (data) {
 
         var arrItems = [];      // THE ARRAY TO STORE JSON ITEMS.
         $.each(data, function (index, value) {

@@ -3,7 +3,16 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+            crossorigin=""></script>
     <script src="src_js/pouplate_shops.js"></script>
     <script src="src_js/populate_favourites.js"></script>
     <script src="src_js/populate_category.js"></script>
@@ -14,13 +23,8 @@
     <script src="src_js/search.js"></script>
     <script src="src_js/populate_shops_function.js"></script>
     <script src="src_js/add_fav.js"></script>
-
-
-
-
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="src_js/load_map.js"></script>
     <script src="src_js/table-edits.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
@@ -87,7 +91,7 @@
     <input type="button" id="addShop" value="Add Shop">
 </a>
 
-
+<div id="mapid"></div>
 
 </body>
 </html>

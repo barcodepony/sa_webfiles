@@ -46,3 +46,7 @@ td {
     max-height: 350px;
     overflow: scroll;
 }
+
+#mapid {
+    height: 360px;
+}
