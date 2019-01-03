@@ -1,4 +1,4 @@
-function populate_shops_filtered(link) {
+function populate_shops_filtered(link, enable_map, poi_id=false, poi_range=250) {
     $.getJSON(link, function (data) {
 
         var arrItems = [];      // THE ARRAY TO STORE JSON ITEMS.
@@ -15,10 +15,34 @@ function populate_shops_filtered(link) {
                 }
             }
         }
+
         // CREATE DYNAMIC TABLE.
         var table = document.createElement("table");
         table.id = "shops_table";
 
+        if(typeof map != "undefined")
+        {
+            map.remove();
+        }
+        var container = L.DomUtil.get('mapid'); if(container != null){ container._leaflet_id = null; }
+        var mymap = L.map('mapid').setView([47.076668, 15.421371], 13);
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYmFyY29kZXBvbnkiLCJhIjoiY2pxZmVxc2hiNTN0MjQzdWwzZmh1bTRtNSJ9.eiW6Ij0rCVaINI4Iu7UIqg', {
+           attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+           maxZoom: 18,
+           id: 'mapbox.streets',
+           accessToken: 'your.mapbox.access.token'
+        }).addTo(mymap);
+
+        //if(typeof poi_id == "number"){
+        //    $.getJSON("http://0.0.0.0:5000/api/pois/"+poi_id, function (data) {
+        //        var circle = L.circle([data["p_lat"], data["p_lon"]], {
+        //            color: 'green',
+        //            fillColor: '#A9F5A9',
+        //            fillOpacity: 0.2,
+        //            radius: poi_range
+        //        }).addTo(mymap);
+        //    });
+        //}
 
 
         // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
@@ -31,6 +55,7 @@ function populate_shops_filtered(link) {
             tr.appendChild(th);
         }
 
+        var arr_length = arrItems.length;
         // ADD JSON DATA TO THE TABLE AS ROWS.
         for (var i = 0; i < arrItems.length; i++) {
 
@@ -40,6 +65,13 @@ function populate_shops_filtered(link) {
                 var tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = arrItems[i][col[j]];
 
+                if (enable_map && arr_length < 100){
+
+                    var lat  = arrItems[i][col[4]];
+                    var lon  = arrItems[i][col[5]];
+                    var name  = arrItems[i][col[6]];
+                    var marker = L.marker([lat, lon]).addTo(mymap).bindTooltip(name);
+                }
                 switch (j) {
                     case 0:
                         tabCell.setAttribute("data-field", "s_amenity");
@@ -55,7 +87,6 @@ function populate_shops_filtered(link) {
                         break;
                     case 4:
                         tabCell.setAttribute("data-field", "s_lat");
-                        //var marker =
                         break;
                     case 5:
                         tabCell.setAttribute("data-field", "s_lon");
@@ -64,16 +95,11 @@ function populate_shops_filtered(link) {
                         tabCell.setAttribute("data-field", "s_name");
                         var cell = tr.insertCell(-1);
                         cell.innerHTML = "<input type='button' onclick='delete_shop(this)' id='delete_shop_btn' value='Delete'>";
-
                         break;
 
                 }
             }
         }
-
-
-
-        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         var divContainer = document.getElementById("main_table");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);

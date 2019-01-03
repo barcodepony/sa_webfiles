@@ -7,7 +7,6 @@ $(document).ready(function() {
         var poi_range = $("#poi_range").val();
         var label = $("#fav_title").val();
 
-
         if(poi_range == "")
         {
             poi_range = 250;
